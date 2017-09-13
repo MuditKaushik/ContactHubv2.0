@@ -1,0 +1,58 @@
+{
+  "name": "contacthub2.0",
+  "version": "2.0.0",
+  "description": "contacthub with angular 4x",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuditKaushik/ContactHubv2.0.git"
+  },
+  "author": "Mudit_Kaushik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MuditKaushik/ContactHubv2.0/issues"
+  },
+  "homepage": "https://github.com/MuditKaushik/ContactHubv2.0#readme",
+  "dependencies": {
+    "@angular/common": "^4.3.6",
+    "@angular/compiler": "^4.3.6",
+    "@angular/core": "^4.3.6",
+    "@angular/forms": "^4.3.6",
+    "@angular/http": "^4.3.6",
+    "@angular/platform-browser": "^4.3.6",
+    "@angular/platform-browser-dynamic": "^4.3.6",
+    "@angular/router": "^4.3.6",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.4",
+    "body-parser": "^1.18.1",
+    "bootstrap": "^3.3.7",
+    "core-js": "^2.5.1",
+    "express": "^4.15.4",
+    "fontawesome": "^4.7.2",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.4.3",
+    "systemjs": "^0.20.18",
+    "zone.js": "^0.8.17"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.16.5",
+    "@types/core-js": "^0.9.43",
+    "@types/express": "^4.0.37",
+    "@types/gulp": "^4.0.4",
+    "@types/gulp-uglify": "^3.0.1",
+    "@types/jasmine": "^2.5.54",
+    "@types/node": "^8.0.28",
+    "@types/run-sequence": "0.0.29",
+    "concurrently": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-uglify": "^3.0.0",
+    "jasmine-core": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.0",
+    "run-sequence": "^2.1.0",
+    "typescript": "^2.5.2"
+  }
+}
