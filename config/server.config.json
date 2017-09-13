@@ -1,0 +1,6 @@
+{
+    "server": {
+        "app_port": 1800,
+        "api_port": 1810
+    }
+}

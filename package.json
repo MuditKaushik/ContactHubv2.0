@@ -27,7 +27,7 @@
     "@angular/router": "^4.3.6",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-beta.4",
     "body-parser": "^1.18.1",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.5.1",
     "express": "^4.15.4",
     "fontawesome": "^4.7.2",
@@ -53,6 +53,7 @@
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.0",
     "run-sequence": "^2.1.0",
+    "tslint": "^5.7.0",
     "typescript": "^2.5.2"
   }
 }
