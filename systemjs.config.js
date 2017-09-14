@@ -26,11 +26,10 @@
                     mapPkg[pkg] = 'node_modules/'.concat(pkg);
                     break;
                 default:
-                    mapPkg[pkg] = 'node_modules/@angular/' + pkg + '/bundles/' + pkg + '.umd.min.js'
+                    mapPkg['@angular/'.concat(pkg)] = 'node_modules/@angular/' + pkg + '/bundles/' + pkg + '.umd.min.js'
                     break;
             }
         });
-        console.log(mapPkg);
         return mapPkg;
     }
     SystemJS.config({

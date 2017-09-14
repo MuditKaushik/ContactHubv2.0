@@ -4,7 +4,11 @@
   "description": "contacthub with angular 4x",
   "main": "index.js",
   "scripts": {
-    "test": "karma start"
+    "test": "karma start",
+    "start": "tsc && concurrently \"npm run tsc:w\" \"npm run server\"",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "server": "node ./app/server/server.js"
   },
   "repository": {
     "type": "git",
@@ -31,9 +35,12 @@
     "core-js": "^2.5.1",
     "express": "^4.15.4",
     "fontawesome": "^4.7.2",
+    "jquery": "^3.2.1",
+    "popper.js": "^1.12.5",
     "reflect-metadata": "^0.1.10",
     "rxjs": "^5.4.3",
     "systemjs": "^0.20.18",
+    "tether": "^1.4.0",
     "zone.js": "^0.8.17"
   },
   "devDependencies": {
