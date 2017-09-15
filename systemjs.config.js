@@ -3,6 +3,8 @@
         var mapPkg = {};
         var pkgs = [
             'rxjs',
+            '@ng-bootstrap/ng-bootstrap',
+            'ng2-ckeditor',
             'common',
             'compiler',
             'core',
@@ -11,7 +13,6 @@
             'platform-browser',
             'platform-browser-dynamic',
             'router',
-            '@ng-bootstrap/ng-bootstrap',
             'app'
         ];
         pkgs.map(function (pkg, pos) {
@@ -24,6 +25,9 @@
                     break;
                 case 'rxjs':
                     mapPkg[pkg] = 'node_modules/'.concat(pkg);
+                    break;
+                case 'ng2-ckeditor':
+                    mapPkg[pkg] = 'node_modules/'.concat(pkg).concat('/lib/index.js');
                     break;
                 default:
                     mapPkg['@angular/'.concat(pkg)] = 'node_modules/@angular/' + pkg + '/bundles/' + pkg + '.umd.min.js'

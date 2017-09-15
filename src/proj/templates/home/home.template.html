@@ -2,12 +2,12 @@
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false"
         aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
+        <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="menu">
-        <div class="navbar-nav">
+        <div class="navbar-nav mr-auto">
             <a class=" nav-item nav-link" [routerLink]="['/dashboard']">Dashboard</a>
-            <a class="nav-item nav-link" href="#">Settings</a>
+            <a class="nav-item nav-link" [routerLink]="['/settings']">Settings</a>
         </div>
         <div class="navbar-nav justify-content-end">
             <a [routerLink]="['/signin']" class="nav-item nav-link">Signin</a>

@@ -1,13 +1,23 @@
 <div class="row">
     <div class="col-2 mh-100 justify-content-start bg-light">
         <div class="navbar-nav float-left flex-column">
-            <a [routerLink]="[{outlets:{'dashb':['contactlist']}}]" class="nav-item nav-link">Contacts</a>
-            <a [routerLink]="[{outlets:{'dashb':['addcontact']}}]" class="nav-item nav-link">Add Contacts</a>
-            <a [routerLink]="['/files']" class="nav-item nav-link">Files</a>
-            <a [routerLink]="['/share']" class="nav-item nav-link">Share</a>
+            <a class="page-item nav-item nav-link text-info">Contacts</a>
+            <nav class="navbar-nav flex-column">
+                <a [routerLink]="[{outlets:{'dashb':['contactlist']}}]" class="nav-item nav-link ml-3 my-1 active">Contact List</a>
+                <a [routerLink]="[{outlets:{'dashb':['addcontact']}}]" class="nav-item nav-link ml-3 my-1">Add Contacts</a>
+            </nav>
+            <span class="page-item nav-item nav-link text-info">Files</span>
+            <nav class="navbar-nav flex-column">
+                <a [routerLink]="[{outlets:{'dashb':['filelist']}}]" class="nav-item nav-link ml-3 my-1">File List</a>
+                <a [routerLink]="[{outlets:{'dashb':['createfiles']}}]" class="nav-item nav-link ml-3 my-1">Create File</a>
+            </nav>
+            <span class="page-item nav-item nav-link text-info">Share</span>
+            <nav class="navbar-nav flex-column">
+                <a [routerLink]="[{outlets:{'dashb':['sharedfiles']}}]" class="nav-item nav-link ml-3 my-1">Share</a>
+            </nav>
         </div>
     </div>
-    <div class="col-8">
+    <div class="col-10">
         <router-outlet name="dashb"></router-outlet>
     </div>
 </div>

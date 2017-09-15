@@ -11,6 +11,11 @@ import { Signin } from './components/user/signin.component'
 import { dashboard } from './components/dashboard/dashboard.component'
 import { AddContact } from './components/dashboard/contacts/addcontact.component'
 import { ContactList } from './components/dashboard/contacts/contactlist.component'
+import { FilesList } from './components/dashboard/files/filelist.component'
+import { ShareFiles } from './components/dashboard/files/sharedfiles.component'
+import { Settings } from './components/settings/setting.component'
+import { CreateFile } from './components/dashboard/files/createfile.component'
+
 //#services
 export module Module {
     @NgModule({
@@ -22,7 +27,11 @@ export module Module {
             Signin.SigninComponent,
             dashboard.dashboardComponent,
             AddContact.AddContactComponent,
-            ContactList.ContactListComponent
+            ContactList.ContactListComponent,
+            FilesList.FileListComponent,
+            ShareFiles.ShareFilesComponent,
+            Settings.SettingComponent,
+            CreateFile.CreateFileComponent
         ],
         bootstrap: [Home.HomeComponent]
     })

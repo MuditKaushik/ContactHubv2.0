@@ -36,6 +36,7 @@
     "express": "^4.15.4",
     "fontawesome": "^4.7.2",
     "jquery": "^3.2.1",
+    "ng2-ckeditor": "^1.1.9",
     "popper.js": "^1.12.5",
     "reflect-metadata": "^0.1.10",
     "rxjs": "^5.4.3",
