@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { CommonModule } from '@angular/common'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { HttpModule } from '@angular/http'
 //#Routes
 import { Router } from './routes/routes'
 //#components
@@ -15,12 +17,23 @@ import { FilesList } from './components/dashboard/files/filelist.component'
 import { ShareFiles } from './components/dashboard/files/sharedfiles.component'
 import { Settings } from './components/settings/setting.component'
 import { CreateFile } from './components/dashboard/files/createfile.component'
-
+import { ModalPopup } from './components/common/modalPopup/modalpopup.component'
+import { Loader } from './components/common/modalPopup/loader.component'
 //#services
+//import { CKEditorModule } from 'ng2-ckeditor'
+import { RemoteService } from './services/remote.service'
 export module Module {
     @NgModule({
         exports: [BrowserModule],
-        imports: [CommonModule, FormsModule, ReactiveFormsModule, Router.RouteConfig],
+        imports: [
+            NgbModule.forRoot(),
+            CommonModule,
+            FormsModule,
+            ReactiveFormsModule,
+            HttpModule,
+            Router.RouteConfig,
+            //CKEditorModule
+        ],
         declarations: [
             Home.HomeComponent,
             Signup.SgninupComponent,
@@ -31,8 +44,12 @@ export module Module {
             FilesList.FileListComponent,
             ShareFiles.ShareFilesComponent,
             Settings.SettingComponent,
-            CreateFile.CreateFileComponent
+            CreateFile.CreateFileComponent,
+            ModalPopup.ModalPopupComponent,
+            Loader.LoaderSpinner
         ],
+        entryComponents: [ModalPopup.ModalPopupComponent, Loader.LoaderSpinner],
+        providers: [RemoteService.HttpService],
         bootstrap: [Home.HomeComponent]
     })
     export class MainModule { }

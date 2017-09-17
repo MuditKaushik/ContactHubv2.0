@@ -1,9 +1,9 @@
 <div class="row">
-    <div class="col-2 mh-100 justify-content-start bg-light">
-        <div class="navbar-nav float-left flex-column">
+    <div class="col-2 bg-light">
+        <nav class="navbar-nav">
             <a class="page-item nav-item nav-link text-info">Contacts</a>
             <nav class="navbar-nav flex-column">
-                <a [routerLink]="[{outlets:{'dashb':['contactlist']}}]" class="nav-item nav-link ml-3 my-1 active">Contact List</a>
+                <a [routerLink]="[{outlets:{'dashb':['contactlist']}}]" class="nav-item nav-link ml-3 my-1">Contact List</a>
                 <a [routerLink]="[{outlets:{'dashb':['addcontact']}}]" class="nav-item nav-link ml-3 my-1">Add Contacts</a>
             </nav>
             <span class="page-item nav-item nav-link text-info">Files</span>
@@ -13,11 +13,11 @@
             </nav>
             <span class="page-item nav-item nav-link text-info">Share</span>
             <nav class="navbar-nav flex-column">
-                <a [routerLink]="[{outlets:{'dashb':['sharedfiles']}}]" class="nav-item nav-link ml-3 my-1">Share</a>
+                <a [routerLink]="[{outlets:{'dashb':['sharedfiles']}}]" class="nav-item nav-link ml-3">Shared Files</a>
             </nav>
-        </div>
+        </nav>
     </div>
-    <div class="col-10">
+    <main class="col-10">
         <router-outlet name="dashb"></router-outlet>
-    </div>
+    </main>
 </div>

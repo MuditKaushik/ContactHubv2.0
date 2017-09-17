@@ -15,7 +15,7 @@ export module Router {
         { path: 'dashboard', component: dashboard.dashboardComponent, children: ChildRoutes.dashboardChild },
         { path: 'settings', component: Settings.SettingComponent },
         { path: '', component: Home.HomeComponent },
-        { path: '**', redirectTo: '/error', pathMatch: "full" }
+        { path: '**', redirectTo: '/', pathMatch: "full" }
     ];
     @NgModule({
         imports: [RouterModule.forRoot(routes)],

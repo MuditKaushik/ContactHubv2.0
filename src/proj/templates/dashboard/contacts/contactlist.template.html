@@ -6,23 +6,23 @@
                     <th></th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Phone</th>
-                    <th>DOB</th>
+                    <th>Gender</th>
+                    <th>Username</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr *ngFor="let person of personList">
                     <td><img src="" alt="" srcset=""></td>
-                    <td>Mudit Mohan Kaushik</td>
-                    <td>muditm@gmail.com</td>
-                    <td>9880915709</td>
-                    <td>10/9/1990</td>
+                    <td>{{person.FirstName}} {{person.LastName}}</td>
+                    <td>{{person.Emails}}</td>
+                    <td>{{person.Gender}}</td>
+                    <td>{{person.UserName}}</td>
                     <td>
                         <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                            <button type="button" class="btn btn-info">show</button>
+                            <button type="button" class="btn btn-info" (click)="showContact()">show</button>
                             <button type="button" class="btn btn-default">edit</button>
-                            <button type="button" class="btn btn-danger">remove</button>
+                            <button type="button" class="btn btn-danger" (click)="removeContact()">remove</button>
                         </div>
                     </td>
                 </tr>

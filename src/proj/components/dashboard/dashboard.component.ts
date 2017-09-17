@@ -1,9 +1,17 @@
 import { Component } from '@angular/core'
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { Utility } from '../../services/utility.service'
 
 export module dashboard {
     @Component({
-        templateUrl:new Utility.StylingandTemplateService('dashboard').getfile('dashboard.template.html')
+        templateUrl: new Utility.StylingandTemplateService('dashboard').getfile('dashboard.template.html')
     })
-    export class dashboardComponent { }
+    export class dashboardComponent {
+        
+        constructor(private modalService: NgbModal) { }
+        ngOnInit() {
+        }
+        loadData() {
+        }
+    }
 }

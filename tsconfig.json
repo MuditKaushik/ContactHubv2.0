@@ -47,6 +47,7 @@
       "gulp",
       "gulp-uglify",
       "jasmine",
+      "jquery",
       "node",
       "run-sequence"
     ], /* Type declaration files to be included in compilation. */

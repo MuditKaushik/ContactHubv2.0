@@ -51,6 +51,7 @@
     "@types/gulp": "^4.0.4",
     "@types/gulp-uglify": "^3.0.1",
     "@types/jasmine": "^2.5.54",
+    "@types/jquery": "^3.2.12",
     "@types/node": "^8.0.28",
     "@types/run-sequence": "0.0.29",
     "concurrently": "^3.5.0",
