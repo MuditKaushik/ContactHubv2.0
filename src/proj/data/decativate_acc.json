@@ -1,0 +1,24 @@
+{
+    "reasons": [
+        {
+            "name": "Not happy",
+            "value": 1
+        },
+        {
+            "name": "Not for me",
+            "value": 2
+        },
+        {
+            "name": "Found alternative",
+            "value": 3
+        },
+        {
+            "name": "UI not good",
+            "value": 4
+        },
+        {
+            "name": "Othres",
+            "value": 5
+        }
+    ]
+}

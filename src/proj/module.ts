@@ -22,6 +22,7 @@ import { Loader } from './components/common/modalPopup/loader.component'
 //#services
 //import { CKEditorModule } from 'ng2-ckeditor'
 import { RemoteService } from './services/remote.service'
+
 export module Module {
     @NgModule({
         exports: [BrowserModule],
@@ -49,7 +50,7 @@ export module Module {
             Loader.LoaderSpinner
         ],
         entryComponents: [ModalPopup.ModalPopupComponent, Loader.LoaderSpinner],
-        providers: [RemoteService.HttpService],
+        providers: [RemoteService.HttpService, RemoteService.LocalService],
         bootstrap: [Home.HomeComponent]
     })
     export class MainModule { }

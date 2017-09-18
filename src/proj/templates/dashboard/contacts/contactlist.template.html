@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
     <div class="col-12">
         <table class="table table-hover">
             <thead>
@@ -20,13 +20,27 @@
                     <td>{{person.UserName}}</td>
                     <td>
                         <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                            <button type="button" class="btn btn-info" (click)="showContact()">show</button>
+                            <button type="button" class="btn btn-info" (click)="showContact(1)">show</button>
                             <button type="button" class="btn btn-default">edit</button>
-                            <button type="button" class="btn btn-danger" (click)="removeContact()">remove</button>
+                            <button type="button" class="btn btn-danger" (click)="removeContact(1)">remove</button>
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
+    </div>
+</div> -->
+<h3 class="page-title">GitHub Users</h3>
+<hr/>
+<div class="row">
+    <div class="col-3 mt-3" *ngFor="let item of gitHubList">
+        <div class="card">
+            <img class="card-img-top" [src]="item.avatar_url" alt="">
+            <div class="card-body">
+                <h4 class="card-title">{{item.login}}</h4>
+                <a href="{{item.html_url}}" target="_blank">View repo</a>
+                <a href=""></a>
+            </div>
+        </div>
     </div>
 </div>

@@ -11,14 +11,24 @@ export module ContactList {
     })
     export class ContactListComponent implements OnInit {
         personList: Array<ContactModel.ContactViewModel>
+        gitHubList: Array<any>
         constructor(private modalService: NgbModal, private remoteService: RemoteService.HttpService) {
         }
         ngOnInit() {
             this.remoteService.getPeople().subscribe((data) => {
-                this.personList = data.value;
+                this.personList = data;
+            });
+            this.remoteService.getGitHubUsers().subscribe((data) => {
+                this.gitHubList = data;
+                console.log("gitHub list",this.gitHubList);
+            });
+            this.remoteService.getGitHubUser('MuditKaushik').subscribe((data) => {
+                console.log("github user detail", data);
             });
         }
-        showContact(): void {
+        showContact(id: number): void {
+            this.personList.filter((val, pos) => {
+            });
             let popup = this.modalService.open(ModalPopup.ModalPopupComponent);
             popup.componentInstance.title = "Contact Details";
             popup.componentInstance.body = "";
