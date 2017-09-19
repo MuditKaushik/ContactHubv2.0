@@ -19,6 +19,8 @@ import { Settings } from './components/settings/setting.component'
 import { CreateFile } from './components/dashboard/files/createfile.component'
 import { ModalPopup } from './components/common/modalPopup/modalpopup.component'
 import { Loader } from './components/common/modalPopup/loader.component'
+import { ContactSearch } from './components/dashboard/contacts/searchcontacts.component'
+import { ContactResult } from './components/dashboard/contacts/contactresult.component'
 //#services
 //import { CKEditorModule } from 'ng2-ckeditor'
 import { RemoteService } from './services/remote.service'
@@ -47,7 +49,9 @@ export module Module {
             Settings.SettingComponent,
             CreateFile.CreateFileComponent,
             ModalPopup.ModalPopupComponent,
-            Loader.LoaderSpinner
+            ContactSearch.SearchContact,
+            Loader.LoaderSpinner,
+            ContactResult.ResultContact
         ],
         entryComponents: [ModalPopup.ModalPopupComponent, Loader.LoaderSpinner],
         providers: [RemoteService.HttpService, RemoteService.LocalService],

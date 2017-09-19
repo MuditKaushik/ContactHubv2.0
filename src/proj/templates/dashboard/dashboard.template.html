@@ -3,8 +3,9 @@
         <nav class="navbar-nav">
             <a class="page-item nav-item nav-link text-info">Contacts</a>
             <nav class="navbar-nav flex-column">
+                <a [routerLink]="[{outlets:{'dashb':['search']}}]" class="nav-item nav-link ml-3 my-1">Search</a>
                 <a [routerLink]="[{outlets:{'dashb':['contactlist']}}]" class="nav-item nav-link ml-3 my-1">Contact List</a>
-                <a [routerLink]="[{outlets:{'dashb':['addcontact']}}]" class="nav-item nav-link ml-3 my-1">Add Contacts</a>
+                <a [routerLink]="[{outlets:{'dashb':['addcontact']}}]" class="nav-item nav-link ml-3 my-1">Add Contact</a>
             </nav>
             <span class="page-item nav-item nav-link text-info">Files</span>
             <nav class="navbar-nav flex-column">
