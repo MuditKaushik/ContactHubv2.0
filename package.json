@@ -34,7 +34,7 @@
     "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.5.1",
     "express": "^4.15.4",
-    "fontawesome": "^4.7.2",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
     "ng2-ckeditor": "^1.1.9",
     "popper.js": "^1.12.5",

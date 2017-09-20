@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { Subject } from 'rxjs/Rx'
 import { Utility } from '../../../services/utility.service'
 import { NgbModal, NgbActiveModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap'
 import { ModalPopup } from '../../common/modalPopup/modalpopup.component'
@@ -20,7 +21,6 @@ export module ContactList {
             });
             this.remoteService.getGitHubUsers().subscribe((data) => {
                 this.gitHubList = data;
-                console.log("gitHub list",this.gitHubList);
             });
             this.remoteService.getGitHubUser('MuditKaushik').subscribe((data) => {
                 console.log("github user detail", data);
