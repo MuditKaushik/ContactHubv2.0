@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, Injectable } from '@angular/core'
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap'
 import { Utility } from '../../../services/utility.service'
 export module Loader {
     @Component({

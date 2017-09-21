@@ -4,7 +4,8 @@ import { Utility } from '../../services/utility.service'
 
 export module dashboard {
     @Component({
-        templateUrl: new Utility.StylingandTemplateService('dashboard').getfile('dashboard.template.html')
+        templateUrl: new Utility.StylingandTemplateService('dashboard').getfile('dashboard.template.html'),
+        styleUrls:[new Utility.StylingandTemplateService('dashboard').getfile('dashboard.template.css')]
     })
     export class dashboardComponent {
         

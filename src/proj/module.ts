@@ -1,10 +1,10 @@
+//#Modules
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { CommonModule } from '@angular/common'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { NgbModule, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap'
 import { HttpModule } from '@angular/http'
-//#Routes
 import { Router } from './routes/routes'
 //#components
 import { Home } from './components/home/home.component'
@@ -29,13 +29,13 @@ export module Module {
     @NgModule({
         exports: [BrowserModule],
         imports: [
-            NgbModule.forRoot(),
             CommonModule,
             FormsModule,
-            ReactiveFormsModule,
             HttpModule,
-            Router.RouteConfig,
-            //CKEditorModule
+            NgbModule.forRoot(),
+            ReactiveFormsModule,
+            Router.RouteConfig
+            //,CKEditorModule
         ],
         declarations: [
             Home.HomeComponent,
@@ -50,8 +50,8 @@ export module Module {
             CreateFile.CreateFileComponent,
             ModalPopup.ModalPopupComponent,
             ContactSearch.SearchContact,
-            Loader.LoaderSpinner,
-            ContactResult.ResultContact
+            ContactResult.ResultContact,
+            Loader.LoaderSpinner
         ],
         entryComponents: [ModalPopup.ModalPopupComponent, Loader.LoaderSpinner],
         providers: [RemoteService.HttpService, RemoteService.LocalService],

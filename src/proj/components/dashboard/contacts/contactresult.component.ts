@@ -6,15 +6,15 @@ export module ContactResult {
         selector: 'contact-result',
         templateUrl: new Utility.StylingandTemplateService('dashboard/contacts').getfile('contactresult.template.html')
     })
-    export class ResultContact implements OnChanges {
+    export class ResultContact {
         @Input() result: any;
         constructor() {
             console.log(this.result);
         }
-        ngOnChanges(changes: SimpleChanges) {
-            if (changes['result']) {
-                console.log(this.result);
-            }
-        }
+        // ngOnChanges(changes: SimpleChanges) {
+        //     if (changes['result']) {
+        //         console.log(this.result);
+        //     }
+        // }
     }
 }

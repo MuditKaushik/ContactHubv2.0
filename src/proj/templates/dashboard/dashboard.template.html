@@ -3,18 +3,36 @@
         <nav class="navbar-nav">
             <a class="page-item nav-item nav-link text-info">Contacts</a>
             <nav class="navbar-nav flex-column">
-                <a [routerLink]="[{outlets:{'dashb':['search']}}]" class="nav-item nav-link ml-3 my-1">Search</a>
-                <a [routerLink]="[{outlets:{'dashb':['contactlist']}}]" class="nav-item nav-link ml-3 my-1">Contact List</a>
-                <a [routerLink]="[{outlets:{'dashb':['addcontact']}}]" class="nav-item nav-link ml-3 my-1">Add Contact</a>
+                <a [routerLink]="[{outlets:{'dashb':['search']}}]" class="nav-item nav-link ml-3 my-1">
+                    <i routerLinkActive="point"></i>
+                    Search
+                </a>
+                <a [routerLink]="[{outlets:{'dashb':['contactlist']}}]" class="nav-item nav-link ml-3 my-1">
+                    <i routerLinkActive="fa fa-hand-o-right"></i>
+                    Contact List
+                </a>
+                <a [routerLink]="[{outlets:{'dashb':['addcontact']}}]" class="nav-item nav-link ml-3 my-1">
+                    <i routerLinkActive="fa fa-hand-o-right" aria-hidden="true"></i>
+                    Add Contact
+                </a>
             </nav>
             <span class="page-item nav-item nav-link text-info">Files</span>
             <nav class="navbar-nav flex-column">
-                <a [routerLink]="[{outlets:{'dashb':['filelist']}}]" class="nav-item nav-link ml-3 my-1">File List</a>
-                <a [routerLink]="[{outlets:{'dashb':['createfiles']}}]" class="nav-item nav-link ml-3 my-1">Create File</a>
+                <a [routerLink]="[{outlets:{'dashb':['filelist']}}]" class="nav-item nav-link ml-3 my-1">
+                    <i routerLinkActive="fa fa-hand-o-right" aria-hidden="true"></i>
+                    File List
+                </a>
+                <a [routerLink]="[{outlets:{'dashb':['createfiles']}}]" class="nav-item nav-link ml-3 my-1">
+                    <i routerLinkActive="fa fa-hand-o-right" aria-hidden="true"></i>
+                    Create File
+                </a>
             </nav>
             <span class="page-item nav-item nav-link text-info">Share</span>
             <nav class="navbar-nav flex-column">
-                <a [routerLink]="[{outlets:{'dashb':['sharedfiles']}}]" class="nav-item nav-link ml-3">Shared Files</a>
+                <a [routerLink]="[{outlets:{'dashb':['sharedfiles']}}]" class="nav-item nav-link ml-3">
+                    <i routerLinkActive="fa fa-hand-o-right" aria-hidden="true"></i>
+                    Shared Files
+                </a>
             </nav>
         </nav>
     </div>
