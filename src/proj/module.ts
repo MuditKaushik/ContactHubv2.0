@@ -24,6 +24,7 @@ import { ContactResult } from './components/dashboard/contacts/contactresult.com
 //#services
 //import { CKEditorModule } from 'ng2-ckeditor'
 import { RemoteService } from './services/remote.service'
+import { Spinner } from './services/utility.service'
 
 export module Module {
     @NgModule({
@@ -54,7 +55,7 @@ export module Module {
             Loader.LoaderSpinner
         ],
         entryComponents: [ModalPopup.ModalPopupComponent, Loader.LoaderSpinner],
-        providers: [RemoteService.HttpService, RemoteService.LocalService],
+        providers: [RemoteService.HttpService, RemoteService.LocalService, Spinner.SpinnerLoader],
         bootstrap: [Home.HomeComponent]
     })
     export class MainModule { }

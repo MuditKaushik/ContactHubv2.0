@@ -1,5 +1,6 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core'
-import { Utility } from '../../../services/utility.service'
+import { Component, Input } from '@angular/core'
+import { BehaviorSubject } from 'rxjs/BehaviorSubject'
+import { Utility } from '../../../services/template.service'
 
 export module ContactResult {
     @Component({
@@ -7,14 +8,7 @@ export module ContactResult {
         templateUrl: new Utility.StylingandTemplateService('dashboard/contacts').getfile('contactresult.template.html')
     })
     export class ResultContact {
-        @Input() result: any;
-        constructor() {
-            console.log(this.result);
-        }
-        // ngOnChanges(changes: SimpleChanges) {
-        //     if (changes['result']) {
-        //         console.log(this.result);
-        //     }
-        // }
+        @Input() result: any
+        constructor() { }
     }
 }

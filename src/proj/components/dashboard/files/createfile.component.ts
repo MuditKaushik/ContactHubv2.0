@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { Utility } from '../../../services/utility.service'
+import { Utility } from '../../../services/template.service'
 
 export module CreateFile {
     @Component({

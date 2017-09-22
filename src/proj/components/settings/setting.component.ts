@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { Utility } from '../../services/utility.service'
+import { Utility } from '../../services/template.service'
 import { RemoteService } from '../../services/remote.service'
 
 export module Settings {

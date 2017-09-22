@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs/Rx'
 import { Http, Response, Headers } from '@angular/http'
 import { ContactModel } from '../models/contactModels/contactModel'
-import { Utility } from '../services/utility.service'
 import 'rxjs/add/operator/map'
 
 export module RemoteService {

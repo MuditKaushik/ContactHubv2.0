@@ -49,7 +49,8 @@
       "jasmine",
       "jquery",
       "node",
-      "run-sequence"
+      "run-sequence",
+      "browser-sync"
     ], /* Type declaration files to be included in compilation. */
     // "allowSyntheticDefaultImports": true,  /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
     /* Source Map Options */

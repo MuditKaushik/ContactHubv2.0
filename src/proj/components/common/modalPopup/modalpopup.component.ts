@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core'
-import { Utility } from '../../../services/utility.service'
+import { Utility } from '../../../services/template.service'
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 
 export module ModalPopup {

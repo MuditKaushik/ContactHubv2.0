@@ -1,0 +1,6 @@
+.bg-pic{
+    background-image: url('./src/proj/images/bg2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment:fixed;
+}

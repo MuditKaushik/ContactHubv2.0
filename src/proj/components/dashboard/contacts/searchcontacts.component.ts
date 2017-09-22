@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core'
 import { FormGroup, FormControl, Validators } from '@angular/forms'
-import { Utility } from '../../../services/utility.service'
+import { Utility } from '../../../services/template.service'
 import { RemoteService } from '../../../services/remote.service'
 
 export module ContactSearch {
@@ -14,8 +14,8 @@ export module ContactSearch {
         ngOnInit() {
             this.searchForm = this.createSearchForm();
         }
-        ngOnChanges() { 
-            
+        ngOnChanges() {
+
         }
         searchPerson(model: FormGroup) {
             if (this.searchForm.valid) {

@@ -1,11 +1,14 @@
 <div class="row">
-    <div class="col-4">
+    <div class="col-3">
         <div class="card">
-            <img class="card-img-top" [src]="avatar_url" />
+            <img class="card-img-top" [src]="result.avatar_url" />
             <div class="card-body">
                 <p class="card-text">
                     {{result.login}}
                 </p>
+                <a [href]="result.html_url" class="btn btn-sm btn-outline-primary" target="_blank" placement="bottom" ngbTooltip="view">
+                    <i class="fa fa-eye"></i>
+                </a>
             </div>
         </div>
     </div>
