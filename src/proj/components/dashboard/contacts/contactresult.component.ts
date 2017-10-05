@@ -8,7 +8,7 @@ export module ContactResult {
         templateUrl: new Utility.StylingandTemplateService('dashboard/contacts').getfile('contactresult.template.html')
     })
     export class ResultContact {
-        @Input() result: any
+        @Input('result') result: any
         constructor() { }
     }
 }

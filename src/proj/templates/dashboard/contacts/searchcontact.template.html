@@ -2,14 +2,23 @@
 <hr/>
 <div class="row">
     <div class="col-6">
-        <form [formGroup]="searchForm" (ngSubmit)="searchPerson(searchForm)">
-            <div class="input-group">
-                <input type="text" name="" id="" formControlName="username" class="form-control" placeholder="enter username" />
-                <span class="input-group-btn">
+        <form [formGroup]="searchForm" (ngSubmit)="searchPerson(searchForm)" class="form-inline">
+            <div class="form-group">
+                <label class="mr-sm-2" for="filterby">Filter by:</label>
+                <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelectPref">
+                    <option selected>Select</option>
+                    <option value="1">Name</option>
+                    <option value="2">Email</option>
+                    <option value="3">Gender</option>
+                  </select>
+                <div class="input-group">
+                    <input type="text" name="" id="" formControlName="username" class="form-control" placeholder="enter username" />
+                    <span class="input-group-btn">
                     <button type="submit" class="btn btn-secondary" [disabled]="!searchForm.valid">Search</button>
                 </span>
+                </div>
+                <p class="is-invalid">Required.</p>
             </div>
-            <p class="is-invalid">Required.</p>
         </form>
     </div>
 </div>

@@ -1,4 +1,4 @@
-<!-- <div class="row">
+<div class="row">
     <div class="col-12">
         <table class="table table-hover">
             <thead>
@@ -12,36 +12,21 @@
             </thead>
             <tbody>
                 <tr *ngFor="let person of personList">
-                    <td>{{person.FirstName}} {{person.LastName}}</td>
-                    <td>{{person.Emails}}</td>
-                    <td>{{person.Gender}}</td>
-                    <td>{{person.UserName}}</td>
+                    <td>{{person.firstName}} {{person.middleName}} {{person.lastName}} </td>
+                    <td>{{person.email}}</td>
+                    <td>{{person.gender}}</td>
+                    <td>{{person.username}}</td>
                     <td>
                         <div class="btn-group btn-group-sm" role="group" aria-label="...">
-                            <button type="button" class="btn btn-info" (click)="showContact(1)" placement="bottom" ngbTooltip="view">
+                            <button type="button" class="btn btn-info" (click)="showContact(person._id)" placement="bottom" ngbTooltip="view">
                                 <i class="fa fa-eye"></i>
                             </button>
                             <button type="button" class="btn btn-default" placement="bottom" ngbTooltip="edit"><i class="fa fa-edit"></i></button>
-                            <button type="button" class="btn btn-danger" (click)="removeContact(1)" placement="bottom" ngbTooltip="remove"><i class="fa fa-trash"></i></button>
+                            <button type="button" class="btn btn-danger" (click)="removeContact(person._id)" placement="bottom" ngbTooltip="remove"><i class="fa fa-trash"></i></button>
                         </div>
                     </td>
                 </tr>
             </tbody>
         </table>
-    </div>
-</div> -->
-<h3 class="page-title">Contacts List</h3>
-<hr/>
-<div class="row">
-    <div class="col-3 mt-3" *ngFor="let item of gitHubList">
-        <div class="card">
-            <img class="card-img-top" [src]="item.avatar_url" alt="">
-            <div class="card-body">
-                <h4 class="card-title">{{item.login}}</h4>
-                <a href="{{item.html_url}}" class="btn btn-sm btn-outline-primary" target="_blank" placement="bottom" ngbTooltip="view contact">
-                    <i class="fa fa-eye"></i>
-                </a>
-            </div>
-        </div>
     </div>
 </div>

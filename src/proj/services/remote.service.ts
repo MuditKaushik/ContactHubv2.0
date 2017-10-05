@@ -1,34 +1,36 @@
 import { Injectable } from '@angular/core'
-import { Observable } from 'rxjs/Rx'
-import { Http, Response, Headers } from '@angular/http'
+import { Http, Response, Headers, RequestOptionsArgs } from '@angular/http'
 import { ContactModel } from '../models/contactModels/contactModel'
+import { Api } from './urls'
+import { Observable } from 'rxjs/Rx'
 import 'rxjs/add/operator/map'
+import 'rxjs/add/operator/catch'
+import 'rxjs/add/observable/throw'
 
 export module RemoteService {
     @Injectable()
     export class HttpService {
         constructor(private httpService: Http) {
         }
-        getPeople(): Observable<Array<ContactModel.ContactViewModel>> {
-            return this.httpService.get('http://services.odata.org/v4/TripPinServiceRW/People')
-                .map((data) => {
-                    let response = data.json();
-                    return <Array<ContactModel.ContactViewModel>>response.value;
-                });
-        }
-        getGitHubUsers(): Observable<any> {
-            return this.httpService.get('https://api.github.com/users')
-                .map((data) => {
-                    let response = <any>data.json()
-                    return response;
-                });
-        }
-        getGitHubUser(username: string): Observable<any> {
-            let url = "https://api.github.com/users/".concat(username);
-            return this.httpService.get(url).map((data) => {
+        getPeople(): Observable<any> {
+            return this.httpService.get(Api.contactUrl).map((data: Response) => {
                 let response = <any>data.json();
                 return response;
-            });
+            }).catch(this.ErrorHandler);
+        }
+        ErrorHandler(err: any) {
+            console.log("server error:", err);
+            if (err instanceof Response) {
+                let errMsg = "";
+                try {
+                    errMsg = err.json().error;
+                }
+                catch (ex) {
+                    errMsg = err.statusText;
+                }
+                return Observable.throw(errMsg);
+            }
+            return Observable.throw(err || "internal server error.");
         }
     }
 

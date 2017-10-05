@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Input } from '@angular/core'
 import { NgbModal, NgbActiveModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap'
+import { Spinner } from '../../../services/utility.service'
 import { Subject } from 'rxjs/Rx'
 import { Utility } from '../../../services/template.service'
 import { ModalPopup } from '../../common/modalPopup/modalpopup.component'
@@ -13,17 +14,13 @@ export module ContactList {
     export class ContactListComponent implements OnInit {
         personList: Array<ContactModel.ContactViewModel>
         gitHubList: Array<any>
-        constructor(private modalService: NgbModal, private remoteService: RemoteService.HttpService) {
+        constructor(private modalService: NgbModal,
+            private remoteService: RemoteService.HttpService,
+            private loader: Spinner.SpinnerLoader) {
         }
         ngOnInit() {
             this.remoteService.getPeople().subscribe((data) => {
                 this.personList = data;
-            });
-            this.remoteService.getGitHubUsers().subscribe((data) => {
-                this.gitHubList = data;
-            });
-            this.remoteService.getGitHubUser('MuditKaushik').subscribe((data) => {
-                console.log("github user detail", data);
             });
         }
         showContact(id: number): void {
