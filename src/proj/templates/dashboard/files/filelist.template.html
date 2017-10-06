@@ -12,12 +12,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Abc1</td>
-                    <td>pdf</td>
+                <tr *ngFor="let file of fileList">
+                    <td>{{file.name}}</td>
+                    <td>{{file.extenstion}}</td>
                     <td>@Me</td>
-                    <td>9/03/2017</td>
-                    <td>10/03/2017</td>
+                    <td>{{file.date}}</td>
+                    <td>{{file.lastmodify}}</td>
                     <td>
                         <div class="btn-group btn-group-sm">
                             <button type="button" class="btn btn-primary" placement="bottom" ngbTooltip="view">

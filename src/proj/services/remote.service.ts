@@ -18,6 +18,12 @@ export module RemoteService {
                 return response;
             }).catch(this.ErrorHandler);
         }
+        getFiles(): Observable<any> {
+            return this.httpService.get(Api.fileUrl).map((data: Response) => {
+                let response = <any>data.json();
+                return response;
+            }).catch(this.ErrorHandler);
+        }
         ErrorHandler(err: any) {
             console.log("server error:", err);
             if (err instanceof Response) {

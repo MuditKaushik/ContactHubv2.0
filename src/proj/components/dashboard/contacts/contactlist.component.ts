@@ -6,21 +6,28 @@ import { Utility } from '../../../services/template.service'
 import { ModalPopup } from '../../common/modalPopup/modalpopup.component'
 import { RemoteService } from '../../../services/remote.service'
 import { ContactModel } from '../../../models/contactModels/contactModel'
+import { AlertModel } from '../../../models/alertModel/alertModel'
 
 export module ContactList {
     @Component({
         templateUrl: new Utility.StylingandTemplateService('dashboard/contacts').getfile('contactlist.template.html')
     })
     export class ContactListComponent implements OnInit {
+        alert: AlertModel.IAlertModel
         personList: Array<ContactModel.ContactViewModel>
         gitHubList: Array<any>
+
         constructor(private modalService: NgbModal,
             private remoteService: RemoteService.HttpService,
             private loader: Spinner.SpinnerLoader) {
         }
         ngOnInit() {
             this.remoteService.getPeople().subscribe((data) => {
-                this.personList = data;
+                this.alert.type = "info";
+                this.alert.message = "loading....";
+                setTimeout(() => {
+                    this.personList = data;
+                }, 2000);
             });
         }
         showContact(id: number): void {
