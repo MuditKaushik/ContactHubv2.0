@@ -10,8 +10,14 @@ gulp.task('appmin', () => {
     return gulp.src(srcPath).pipe(uglify()).pipe(gulp.dest(destPath));
 });
 
-
+gulp.task("watch", () => {
+    let srcPath = path.join(__dirname, "/app/**/*.js");
+    let destPath = path.join(__dirname, "/appmin/");
+    gulp.watch(srcPath, () => {
+        return gulp.src(srcPath).pipe(uglify()).pipe(gulp.dest(destPath));
+    });
+});
 
 gulp.task('default', () => {
-    return sequence('appmin');
+    return sequence(["appmin", "watch"]);
 });

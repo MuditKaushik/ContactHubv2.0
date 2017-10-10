@@ -13,6 +13,7 @@
             'platform-browser',
             'platform-browser-dynamic',
             'router',
+            'http-status-codes',
             'app'
         ];
         pkgs.map(function (pkg, pos) {
@@ -29,6 +30,9 @@
                 case 'ng2-ckeditor':
                     mapPkg[pkg] = 'node_modules/'.concat(pkg).concat('/lib/index.js');
                     break;
+                case 'http-status-codes':
+                    mapPkg[pkg] = 'node_modules/'.concat(pkg).concat('/index.js');
+                    break
                 default:
                     mapPkg['@angular/'.concat(pkg)] = 'node_modules/@angular/' + pkg + '/bundles/' + pkg + '.umd.min.js'
                     break;

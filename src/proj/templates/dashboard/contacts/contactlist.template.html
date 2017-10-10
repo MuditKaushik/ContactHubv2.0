@@ -34,8 +34,8 @@
                     <td colspan="5">
                         <ng-template [ngIf]="!personList">
                             <p>
-                                <ngb-alert [dismissible]="false" [type]="alert.type">
-                                    <em>{{alert.message}}</em>
+                                <ngb-alert [dismissible]="false" [type]="type">
+                                    <em>{{statusMsg}}</em>
                                 </ngb-alert>
                             </p>
                         </ng-template>

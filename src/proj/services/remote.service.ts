@@ -1,40 +1,48 @@
 import { Injectable } from '@angular/core'
 import { Http, Response, Headers, RequestOptionsArgs } from '@angular/http'
 import { ContactModel } from '../models/contactModels/contactModel'
+import { HttpResponseModel } from '../models/response/responseModel'
 import { Api } from './urls'
-import { Observable } from 'rxjs/Rx'
+import { Observable, Subject } from 'rxjs/Rx'
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/catch'
 import 'rxjs/add/observable/throw'
+import * as httpStatus from 'http-status-codes'
 
 export module RemoteService {
     @Injectable()
     export class HttpService {
+        response: HttpResponseModel.ResponseModel<any> = {} as any;
         constructor(private httpService: Http) {
         }
-        getPeople(): Observable<any> {
+        getPeople(): Observable<HttpResponseModel.ResponseModel<any>> {
             return this.httpService.get(Api.contactUrl).map((data: Response) => {
-                let response = <any>data.json();
-                return response;
+                this.response.status = data.status;
+                this.response.result = <any>data.json();
+                return this.response;
             }).catch(this.ErrorHandler);
         }
-        getFiles(): Observable<any> {
+        getFiles(): Observable<HttpResponseModel.ResponseModel<any>> {
             return this.httpService.get(Api.fileUrl).map((data: Response) => {
-                let response = <any>data.json();
-                return response;
+                this.response.result = <any>data.json();
+                this.response.status = data.status;
+                return this.response;
+            }).catch(this.ErrorHandler);
+        }
+        getGender(): Observable<HttpResponseModel.ResponseModel<any>> {
+            return this.httpService.get(`${Api.commonUrl}/gender`).map((data: Response) => {
+                this.response.status = data.status;
+                this.response.result = <any>data.json();
+                return this.response;
             }).catch(this.ErrorHandler);
         }
         ErrorHandler(err: any) {
-            console.log("server error:", err);
+            debugger;
             if (err instanceof Response) {
-                let errMsg = "";
-                try {
-                    errMsg = err.json().error;
-                }
-                catch (ex) {
-                    errMsg = err.statusText;
-                }
-                return Observable.throw(errMsg);
+                //log error.
+                console.log("server error", err);
+                this.response.status = (err.status || httpStatus.INTERNAL_SERVER_ERROR);
+                this.response.result = (err.statusText || "Internal server error.");
             }
             return Observable.throw(err || "internal server error.");
         }

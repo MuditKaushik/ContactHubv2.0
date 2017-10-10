@@ -1,28 +1,48 @@
 <div class="row justify-content-center mt-3">
     <div class="col-10">
-        <form action="">
+        <form [formGroup]="newcontact" (ngSubmit)="addContact(newcontact)">
             <div class="form-group row">
                 <label for="firstName" class="col-sm-3 col-form-label">First Name</label>
                 <div class="col-sm-8">
-                    <input type="text" name="" id="" class="form-control" />
+                    <input type="text" name="" id="" formControlName="firstName" class="form-control" [ngClass]="IsValidFeild('firstName')?'':'is-invalid'"
+                    />
+                    <div *ngIf="!IsValidFeild('firstName')" [ngClass]="!IsValidFeild('firstName')?'invalid-feedback':''">
+                        feild is required and accept only alphabets.
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="middleName" class="col-sm-3 col-form-label">Middle Name</label>
                 <div class="col-sm-8">
-                    <input type="text" name="" id="" class="form-control" />
+                    <input type="text" name="" id="" formControlName="middleName" class="form-control" />
                 </div>
             </div>
             <div class="form-group row">
                 <label for="lastName" class="col-sm-3 col-form-label">Last Name</label>
                 <div class="col-sm-8">
-                    <input type="text" name="" id="" class="form-control" />
+                    <input type="text" name="" id="" formControlName="lastName" class="form-control" [ngClass]="IsValidFeild('lastName')?'':'is-invalid'"
+                    />
+                    <div *ngIf="!IsValidFeild('lastName')" [ngClass]="!IsValidFeild('lastName')?'invalid-feedback':''">
+                        feild is required and accept only alphabets.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="gender" class="col-sm-3 col-form-label">Gender</label>
+                <div class="col-sm-8">
+                    <Select class="col-sm-8 custom-select" formControlName="gender" [ngClass]="IsValidFeild('gender')?'':'is-invalid'">
+                        <option value="0">Select</option>
+                        <option *ngFor="let item of gender" [value]="item.value">{{item.name}}</option>
+                    </Select>
+                    <div *ngIf="!IsValidFeild('gender')" [ngClass]="!IsValidFeild('gender')?'invalid-feedback':''">
+                        a 10 digit phone number is required.
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="dob" class="col-sm-3 col-form-label">Date of birth</label>
                 <div class="col-sm-8 input-group">
-                    <input type="text" name="" id="" class="form-control" ngbDatepicker #d="ngbDatepicker" />
+                    <input type="text" name="" id="" class="form-control" formControlName="dob" ngbDatepicker #d="ngbDatepicker" />
                     <span class="input-group-btn">
                         <button type="button" class="btn btn-secondary" (click)="d.toggle()">
                             <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -33,25 +53,37 @@
             <div class="form-group row">
                 <label for="email" class="col-sm-3 col-form-label">Email Address</label>
                 <div class="col-sm-8">
-                    <input type="text" name="" id="" class="form-control" />
+                    <input type="text" name="" id="" formControlName="email" class="form-control" [ngClass]="IsValidFeild('email')?'':'is-invalid'"
+                    />
+                    <div *ngIf="!IsValidFeild('email')" [ngClass]="!IsValidFeild('email')?'invalid-feedback':''">
+                        valid email address required.
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="" class="col-sm-3 col-form-label">Phone</label>
                 <div class="col-sm-8">
-                    <input type="text" name="" id="" class="form-control" />
+                    <input type="text" name="" id="" formControlName="phone" class="form-control" [ngClass]="IsValidFeild('phone')?'':'is-invalid'"
+                    />
+                    <div *ngIf="!IsValidFeild('phone')" [ngClass]="!IsValidFeild('phone')?'invalid-feedback':''">
+                        feild is required and accept only numbers.
+                    </div>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="" class="col-sm-3 col-form-label">Upload Pic</label>
                 <div class="col-sm-8">
-                    <input type="file" name="" id="" class="form-control-file" />
+                    <label for="" class="custom-file">
+                        <input type="file" name="" id="" formControlName="avatar" class="form-control-file" />
+                        <span class="custom-file-control"></span>
+                    </label>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="" class="col-sm-3 col-form-label"></label>
                 <div class="col-sm-8">
-                    <button type="button" class="btn btn-primary">Add Contact</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!newcontact.valid">Add Contact</button>
+                    <pre>{{newcontact.valid}}</pre>
                 </div>
             </div>
         </form>

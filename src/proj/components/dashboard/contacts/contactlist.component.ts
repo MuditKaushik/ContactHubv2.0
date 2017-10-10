@@ -7,13 +7,16 @@ import { ModalPopup } from '../../common/modalPopup/modalpopup.component'
 import { RemoteService } from '../../../services/remote.service'
 import { ContactModel } from '../../../models/contactModels/contactModel'
 import { AlertModel } from '../../../models/alertModel/alertModel'
+import { HttpResponseModel } from '../../../models/response/responseModel'
+import * as httpStatus from 'http-status-codes'
 
 export module ContactList {
     @Component({
         templateUrl: new Utility.StylingandTemplateService('dashboard/contacts').getfile('contactlist.template.html')
     })
     export class ContactListComponent implements OnInit {
-        alert: AlertModel.IAlertModel
+        type: string;
+        statusMsg: string;
         personList: Array<ContactModel.ContactViewModel>
         gitHubList: Array<any>
 
@@ -22,11 +25,16 @@ export module ContactList {
             private loader: Spinner.SpinnerLoader) {
         }
         ngOnInit() {
-            this.remoteService.getPeople().subscribe((data) => {
-                this.alert.type = "info";
-                this.alert.message = "loading....";
+            this.remoteService.getPeople().subscribe((data: HttpResponseModel.ResponseModel<Array<ContactModel.ContactViewModel>>) => {
+                this.type = "info";
+                this.statusMsg = "loading....";
                 setTimeout(() => {
-                    this.personList = data;
+                    if (data.status === httpStatus.OK) {
+                        this.personList = data.result;
+                    } else {
+                        this.type = "danger";
+                        this.statusMsg = "Internal server error."
+                    }
                 }, 2000);
             });
         }

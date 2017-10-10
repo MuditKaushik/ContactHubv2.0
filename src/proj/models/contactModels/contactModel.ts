@@ -1,10 +1,22 @@
 export module ContactModel {
     export interface ContactViewModel {
         firstName: string;
-        middleName: string;
+        middleName?: string;
         lastName: string;
-        emails: Array<string>;
-        gender: string;
+        email: string;
+        dob?: Date;
+        gender: number;
+        phone: number;
+        avatar?: any
+    }
+    export interface Password {
+        password: string;
+        cnfpassword: string;
+    }
+    export interface RegisterViewModel extends ContactViewModel {
         username: string;
+    }
+    export interface User extends RegisterViewModel {
+        Id: string
     }
 }
