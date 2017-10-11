@@ -32,6 +32,15 @@
                         </div>
                     </td>
                 </tr>
+                <tr *ngIf="!fileList">
+                    <td colspan="6">
+                        <ng-template [ngIf]="!fileList">
+                            <ngb-alert [dismissible]="false" [type]="type">
+                                <em>{{statusMsg}}</em>
+                            </ngb-alert>
+                        </ng-template>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

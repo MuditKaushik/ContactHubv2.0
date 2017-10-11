@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FormGroup, FormControl, Validators } from '@angular/forms'
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { Utility } from '../../../services/template.service'
 import { ContactModel } from '../../../models/contactModels/contactModel'
 import { CommonModel } from '../../../models/common/commonModel'
@@ -14,27 +14,27 @@ export module AddContact {
     export class AddContactComponent implements OnInit {
         newcontact: FormGroup
         viewModel: ContactModel.ContactViewModel = {} as any
-        gender: Array<CommonModel.GenderModel>
-        constructor(private httpService: RemoteService.HttpService) { }
+        genderList: Array<CommonModel.GenderModel>
+        constructor(private httpService: RemoteService.HttpService, private formBuilder: FormBuilder) { }
 
         ngOnInit() {
             this.httpService.getGender().subscribe((data: HttpResponseModel.ResponseModel<Array<CommonModel.GenderModel>>) => {
                 if (data.status === httpStatus.OK) {
-                    this.gender = data.result;
+                    this.genderList = data.result;
                 }
-                console.log(this.gender);
             });
             this.newcontact = this.bindForm();
         }
 
-        addContact(contact: ContactModel.ContactViewModel): void {
+        addContact(contact: FormGroup): void {
+            console.log(contact.value);
             let formValid = this.validateForm(this.newcontact);
         }
 
         validateForm(form: FormGroup): boolean {
-            Object.keys(form.controls).forEach((val, key) => {
-                form.get(val).errors
-            });
+            for (let item in this.newcontact.controls) {
+                console.log(this.newcontact.controls[item]);
+            }
             return false;
         }
 
@@ -51,7 +51,7 @@ export module AddContact {
             return isValid;
         }
 
-        bindForm(): FormGroup {
+        private bindForm(): FormGroup {
             return new FormGroup({
                 firstName: new FormControl(this.viewModel.firstName, [Validators.required, Validators.pattern("^[a-zA-Z]*$")]),
                 middleName: new FormControl(this.viewModel.middleName, [Validators.pattern("^[a-zA-Z]*$")]),
@@ -59,7 +59,7 @@ export module AddContact {
                 email: new FormControl(this.viewModel.email, [Validators.required, Validators.email]),
                 dob: new FormControl(this.viewModel.dob, []),
                 gender: new FormControl(this.viewModel.gender, [Validators.required]),
-                phone: new FormControl(this.viewModel.phone, [Validators.required, Validators.pattern("^[0-9]*$")]),
+                phone: new FormControl(this.viewModel.phone, [Validators.required, Validators.pattern("^[0-9]*$"), Validators.min(10)]),
                 avatar: new FormControl(this.viewModel.avatar)
             });
         }

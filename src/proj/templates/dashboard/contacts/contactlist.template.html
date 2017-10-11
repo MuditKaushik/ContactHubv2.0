@@ -30,7 +30,7 @@
                         </div>
                     </td>
                 </tr>
-                <tr>
+                <tr *ngIf="!personList">
                     <td colspan="5">
                         <ng-template [ngIf]="!personList">
                             <p>

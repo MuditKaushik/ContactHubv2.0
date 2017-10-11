@@ -30,12 +30,12 @@
             <div class="form-group row">
                 <label for="gender" class="col-sm-3 col-form-label">Gender</label>
                 <div class="col-sm-8">
-                    <Select class="col-sm-8 custom-select" formControlName="gender" [ngClass]="IsValidFeild('gender')?'':'is-invalid'">
-                        <option value="0">Select</option>
-                        <option *ngFor="let item of gender" [value]="item.value">{{item.name}}</option>
-                    </Select>
+                    <select name="" id="" class="col-sm-8 custom-select" formControlName="gender" [ngClass]="IsValidFeild('gender')?'':'is-invalid'">
+                        <option value="0" selected="selected">Select</option>
+                        <option *ngFor="let gender of genderList" [value]="gender.value">{{gender.name}}</option>
+                    </select>
                     <div *ngIf="!IsValidFeild('gender')" [ngClass]="!IsValidFeild('gender')?'invalid-feedback':''">
-                        a 10 digit phone number is required.
+                        gender is required.
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                     <input type="text" name="" id="" formControlName="phone" class="form-control" [ngClass]="IsValidFeild('phone')?'':'is-invalid'"
                     />
                     <div *ngIf="!IsValidFeild('phone')" [ngClass]="!IsValidFeild('phone')?'invalid-feedback':''">
-                        feild is required and accept only numbers.
+                        feild is required and accept only 10 digit number.
                     </div>
                 </div>
             </div>
@@ -83,7 +83,6 @@
                 <label for="" class="col-sm-3 col-form-label"></label>
                 <div class="col-sm-8">
                     <button type="submit" class="btn btn-primary" [disabled]="!newcontact.valid">Add Contact</button>
-                    <pre>{{newcontact.valid}}</pre>
                 </div>
             </div>
         </form>
