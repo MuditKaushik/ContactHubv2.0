@@ -36,6 +36,13 @@ export module RemoteService {
                 return this.response;
             }).catch(this.ErrorHandler);
         }
+        getCountries(): Observable<HttpResponseModel.ResponseModel<any>> {
+            return this.httpService.get(`${Api.commonUrl}/countries`).map((data: Response) => {
+                this.response.status = data.status;
+                this.response.result = <any>data.json();
+                return this.response;
+            }).catch(this.ErrorHandler);
+        }
         ErrorHandler(err: any) {
             if (err instanceof Response) {
                 //log error.

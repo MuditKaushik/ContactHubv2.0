@@ -16,12 +16,19 @@ export module AddContact {
         newcontact: FormGroup
         viewModel: ContactModel.ContactViewModel = {} as any
         genderList: Array<CommonModel.GenderModel>
+        countries: Array<CommonModel.Country>
+
         constructor(private httpService: RemoteService.HttpService, private formBuilder: FormBuilder) { }
 
         ngOnInit() {
             this.httpService.getGender().subscribe((data: HttpResponseModel.ResponseModel<Array<CommonModel.GenderModel>>) => {
                 if (data.status === httpStatus.OK) {
                     this.genderList = data.result;
+                }
+            });
+            this.httpService.getCountries().subscribe((data: HttpResponseModel.ResponseModel<Array<CommonModel.Country>>) => {
+                if (data.status === httpStatus.OK) {
+                    this.countries = data.result;
                 }
             });
             this.newcontact = this.bindForm();
@@ -62,6 +69,7 @@ export module AddContact {
                 email: new FormControl(this.viewModel.email, [Validators.required, Validators.pattern(CommonServices.Regex.email_regex)]),
                 dob: new FormControl(this.viewModel.dob, []),
                 gender: new FormControl(this.viewModel.gender, [Validators.required]),
+                code: new FormControl(this.viewModel.dial_code, [Validators.required]),
                 phone: new FormControl(this.viewModel.phone, [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(10)]),
                 avatar: new FormControl(this.viewModel.avatar)
             });

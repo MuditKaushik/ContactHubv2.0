@@ -6,6 +6,7 @@ export module ContactModel {
         email: string;
         dob?: Date;
         gender: number;
+        dial_code: string;
         phone: number;
         avatar?: any
     }

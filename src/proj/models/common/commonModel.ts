@@ -3,4 +3,9 @@ export module CommonModel {
         name: string;
         value: string;
     }
+    export interface Country {
+        name: string;
+        dial_code: string;
+        code: string;
+    }
 }
