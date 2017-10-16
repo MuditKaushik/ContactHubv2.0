@@ -37,7 +37,6 @@ export module RemoteService {
             }).catch(this.ErrorHandler);
         }
         ErrorHandler(err: any) {
-            debugger;
             if (err instanceof Response) {
                 //log error.
                 console.log("server error", err);

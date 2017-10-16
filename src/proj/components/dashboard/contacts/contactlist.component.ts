@@ -8,6 +8,7 @@ import { RemoteService } from '../../../services/remote.service'
 import { ContactModel } from '../../../models/contactModels/contactModel'
 import { AlertModel } from '../../../models/alertModel/alertModel'
 import { HttpResponseModel } from '../../../models/response/responseModel'
+import { CommonServices } from '../../../services/common.service'
 import * as httpStatus from 'http-status-codes'
 
 export module ContactList {
@@ -25,17 +26,25 @@ export module ContactList {
             private loader: Spinner.SpinnerLoader) {
         }
         ngOnInit() {
+            this.type = CommonServices.AlertTypes.Alert_Info;
+            this.statusMsg = CommonServices.AlertMessages.loading;
             this.remoteService.getPeople().subscribe((data: HttpResponseModel.ResponseModel<Array<ContactModel.ContactViewModel>>) => {
-                this.type = "info";
-                this.statusMsg = "loading....";
                 setTimeout(() => {
-                    if (data.status === httpStatus.OK) {
-                        this.personList = data.result;
-                    } else {
-                        this.type = "danger";
-                        this.statusMsg = "Internal server error."
+                    switch (data.status) {
+                        case httpStatus.OK: this.personList = data.result; break;
+                        case httpStatus.NOT_FOUND:
+                            this.type = CommonServices.AlertTypes.Alert_Info;
+                            this.statusMsg = CommonServices.AlertMessages.not_found;
+                            break;
+                        case httpStatus.BAD_REQUEST:
+                            this.type = CommonServices.AlertTypes.Alert_Warning;
+                            this.statusMsg = CommonServices.AlertMessages.bad_request;
+                            break;
                     }
                 }, 2000);
+            }, (err) => {
+                this.type = CommonServices.AlertTypes.Alert_Danger;
+                this.statusMsg = CommonServices.AlertMessages.server_error;
             });
         }
         showContact(id: number): void {

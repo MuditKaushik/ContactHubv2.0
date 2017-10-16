@@ -5,6 +5,7 @@ import { ContactModel } from '../../../models/contactModels/contactModel'
 import { CommonModel } from '../../../models/common/commonModel'
 import { RemoteService } from '../../../services/remote.service'
 import { HttpResponseModel } from '../../../models/response/responseModel'
+import { CommonServices } from '../../../services/common.service'
 import * as httpStatus from 'http-status-codes'
 
 export module AddContact {
@@ -42,9 +43,11 @@ export module AddContact {
             let feildControl = this.newcontact.controls[name], isValid: boolean = true;
             if (feildControl.touched || !feildControl.pristine) {
                 for (let error in feildControl.errors) {
+                    console.log(error);
                     switch (error) {
                         case "required": isValid = false; break;
                         case "pattern": isValid = false; break;
+                        case "minlength": isValid = false; break;
                     }
                 }
             }
@@ -56,10 +59,10 @@ export module AddContact {
                 firstName: new FormControl(this.viewModel.firstName, [Validators.required, Validators.pattern("^[a-zA-Z]*$")]),
                 middleName: new FormControl(this.viewModel.middleName, [Validators.pattern("^[a-zA-Z]*$")]),
                 lastName: new FormControl(this.viewModel.lastName, [Validators.required, Validators.pattern("^[a-zA-Z]*$")]),
-                email: new FormControl(this.viewModel.email, [Validators.required, Validators.email]),
+                email: new FormControl(this.viewModel.email, [Validators.required, Validators.pattern(CommonServices.Regex.email_regex)]),
                 dob: new FormControl(this.viewModel.dob, []),
                 gender: new FormControl(this.viewModel.gender, [Validators.required]),
-                phone: new FormControl(this.viewModel.phone, [Validators.required, Validators.pattern("^[0-9]*$"), Validators.min(10)]),
+                phone: new FormControl(this.viewModel.phone, [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(10)]),
                 avatar: new FormControl(this.viewModel.avatar)
             });
         }

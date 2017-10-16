@@ -1,4 +1,4 @@
-export module AlertServices {
+export module CommonServices {
     export enum AlertTypes {
         "Alert_Info" = "info",
         "Alert_Success" = "success",
@@ -12,5 +12,11 @@ export module AlertServices {
     export enum AlertMessages {
         "server_error" = "Internal server error",
         "loading" = "loading....",
+        "bad_request" = "Bad Request.",
+        "not_found" = "No result found."
+    }
+    export enum Regex {
+        "email_regex" = "[(a-zA-Z0-9)(\.)?(a-zA-Z0-9)]*[^\.]@{1}[^\.][a-zA-Z0-9]*[\.][(a-zA-Z0-9\.)]*[^\.]$",
+        "date_regex" = "",
     }
 }
