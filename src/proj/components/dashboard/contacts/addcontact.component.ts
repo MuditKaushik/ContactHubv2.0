@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core'
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
+import { FormGroup, FormControl, Validators } from '@angular/forms'
 import { Utility } from '../../../services/template.service'
 import { ContactModel } from '../../../models/contactModels/contactModel'
-import { CommonModel } from '../../../models/common/commonModel'
+import { CommonModel } from '../../../models/commonModels/commonModel'
 import { RemoteService } from '../../../services/remote.service'
 import { HttpResponseModel } from '../../../models/response/responseModel'
 import { CommonServices } from '../../../services/common.service'
@@ -18,7 +18,7 @@ export module AddContact {
         genderList: Array<CommonModel.GenderModel>
         countries: Array<CommonModel.Country>
 
-        constructor(private httpService: RemoteService.HttpService, private formBuilder: FormBuilder) { }
+        constructor(private httpService: RemoteService.HttpService) { }
 
         ngOnInit() {
             this.httpService.getGender().subscribe((data: HttpResponseModel.ResponseModel<Array<CommonModel.GenderModel>>) => {
@@ -50,7 +50,6 @@ export module AddContact {
             let feildControl = this.newcontact.controls[name], isValid: boolean = true;
             if (feildControl.touched || !feildControl.pristine) {
                 for (let error in feildControl.errors) {
-                    console.log(error);
                     switch (error) {
                         case "required": isValid = false; break;
                         case "pattern": isValid = false; break;
@@ -68,8 +67,8 @@ export module AddContact {
                 lastName: new FormControl(this.viewModel.lastName, [Validators.required, Validators.pattern("^[a-zA-Z]*$")]),
                 email: new FormControl(this.viewModel.email, [Validators.required, Validators.pattern(CommonServices.Regex.email_regex)]),
                 dob: new FormControl(this.viewModel.dob, []),
-                gender: new FormControl(this.viewModel.gender, [Validators.required]),
-                code: new FormControl(this.viewModel.dial_code, [Validators.required]),
+                gender: new FormControl(this.viewModel.gender = "", [Validators.required]),
+                code: new FormControl(this.viewModel.dial_code = "", [Validators.required]),
                 phone: new FormControl(this.viewModel.phone, [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(10)]),
                 avatar: new FormControl(this.viewModel.avatar)
             });

@@ -17,6 +17,18 @@ export module CommonServices {
     }
     export enum Regex {
         "email_regex" = "[(a-zA-Z0-9)(\.)?(a-zA-Z0-9)]*[^\.]@{1}[^\.][a-zA-Z0-9]*[\.][(a-zA-Z0-9\.)]*[^\.]$",
+        "only_digit" = "^[0-9]*$",
+        "only_alphabets" = "^[a-zA-Z]*$",
+        "alpha_numerics" = "^[a-zA-Z0-9]*$",
         "date_regex" = "",
+    }
+    export enum SearchCriteria {
+        "Name" = 1,
+        "Email" = 2,
+        "Gender" = 3
+    }
+    export enum Gender {
+        "Male" = 1,
+        "Female" = 2
     }
 }

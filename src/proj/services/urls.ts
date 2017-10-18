@@ -1,6 +1,17 @@
 export module Api {
     const baseUrl = `http://localhost:1810/api`;
-    export const contactUrl = `${baseUrl}/contact/`;
-    export const fileUrl = `${baseUrl}/file/`;
-    export const commonUrl = `${baseUrl}/common`;
+    const contactUrl = `${baseUrl}/contact`;
+    const fileUrl = `${baseUrl}/file`;
+    const commonUrl = `${baseUrl}/common`;
+
+    export function GetUrls() {
+        return {
+            "GetContactList": `${contactUrl}/`,
+            "GetFileList": `${fileUrl}/`,
+            "GetGenders": `${commonUrl}/gender`,
+            "GetCountries": `${commonUrl}/countries`,
+            "GetContactsSearchCriteria": `${commonUrl}/searchcriteria`,
+            "FilterContact": `${contactUrl}/searchcontact`
+        }
+    }
 }

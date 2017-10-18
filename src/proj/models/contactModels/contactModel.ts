@@ -5,7 +5,7 @@ export module ContactModel {
         lastName: string;
         email: string;
         dob?: Date;
-        gender: number;
+        gender: string;
         dial_code: string;
         phone: number;
         avatar?: any
@@ -19,5 +19,13 @@ export module ContactModel {
     }
     export interface User extends RegisterViewModel {
         Id: string
+    }
+    export interface SearchCriteria {
+        filter: string;
+        value: number;
+    }
+    export interface ContactSearch {
+        criteria: string;
+        searchTerm: string
     }
 }

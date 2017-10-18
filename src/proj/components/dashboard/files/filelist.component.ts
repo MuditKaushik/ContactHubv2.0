@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { RemoteService } from '../../../services/remote.service'
 import { Utility } from '../../../services/template.service'
-import { FileList } from '../../../models/file/fileList'
+import { FileList } from '../../../models/fileModels/fileList'
 import { HttpResponseModel } from '../../../models/response/responseModel'
 import { CommonServices } from '../../../services/common.service'
 import * as httpStatus from 'http-status-codes'

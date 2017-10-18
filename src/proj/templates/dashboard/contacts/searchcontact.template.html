@@ -1,25 +1,22 @@
 <h3>Search Contacts</h3>
 <hr/>
-<div class="row">
-    <div class="col-6">
-        <form [formGroup]="searchForm" (ngSubmit)="searchPerson(searchForm)" class="form-inline">
-            <div class="form-group">
-                <label class="mr-sm-2" for="filterby">Filter by:</label>
-                <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelectPref">
-                    <option selected>Select</option>
-                    <option value="1">Name</option>
-                    <option value="2">Email</option>
-                    <option value="3">Gender</option>
-                  </select>
-                <div class="input-group">
-                    <input type="text" name="" id="" formControlName="username" class="form-control" placeholder="enter username" />
-                    <span class="input-group-btn">
-                    <button type="submit" class="btn btn-secondary" [disabled]="!searchForm.valid">Search</button>
+<form [formGroup]="searchForm" (ngSubmit)="searchPerson(searchForm)">
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <select name="" id="" formControlName="criteria" class="custom-select col-md-2">
+                <option value="">Filter by:</option>
+                <option *ngFor="let criteria of criteriaList" [value]="criteria.value">{{criteria.filter}}</option>
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <div class="input-group">
+                <input type="text" name="" id="" formControlName="searchTerm" class="form-control" placeholder="enter search term" />
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-primary">Filter</button>
                 </span>
-                </div>
-                <p class="is-invalid">Required.</p>
             </div>
-        </form>
+        </div>
     </div>
-</div>
+</form>
+<hr/>
 <contact-result [result]="contact" *ngIf="contact"></contact-result>

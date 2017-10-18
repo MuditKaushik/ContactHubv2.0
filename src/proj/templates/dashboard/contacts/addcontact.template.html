@@ -31,7 +31,7 @@
                 <label for="gender" class="col-sm-3 col-form-label">Gender</label>
                 <div class="col-sm-8">
                     <select name="" id="" class="col-sm-8 custom-select" formControlName="gender" [ngClass]="IsValidFeild('gender')?'':'is-invalid'">
-                        <option value="0" selected="selected">Select</option>
+                        <option value="">Select</option>
                         <option *ngFor="let gender of genderList" [value]="gender.value">{{gender.name}}</option>
                     </select>
                     <div *ngIf="!IsValidFeild('gender')" [ngClass]="!IsValidFeild('gender')?'invalid-feedback':''">
@@ -66,7 +66,7 @@
                     <div class="row">
                         <div class="col-4 col-sm-4">
                             <select name="" id="" class="col-sm-3 custom-select" formControlName="code" [ngClass]="IsValidFeild('code')?'':'is-invalid'">
-                                <option selected>dial codes</option>
+                                <option value="">dial codes</option>
                                 <option value="" *ngFor="let country of countries" [value]="country.dial_code">({{country.dial_code}}) {{country.name}}</option>
                             </select>
                             <div *ngIf="!IsValidFeild('code')" [ngClass]="!IsValidFeild('code')?'invalid-feedback':''">
