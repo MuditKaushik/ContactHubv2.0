@@ -11,7 +11,7 @@ export module Api {
             "GetGenders": `${commonUrl}/gender`,
             "GetCountries": `${commonUrl}/countries`,
             "GetContactsSearchCriteria": `${commonUrl}/searchcriteria`,
-            "FilterContact": `${contactUrl}/searchcontact`
+            "FilterContact": `${contactUrl}/filter`
         }
     }
 }

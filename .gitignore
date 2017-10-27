@@ -1,7 +1,5 @@
 /node_modules
-/node_modules/**/*
 /.vscode
-/.vscode/**/*
-/app/**/*
-/appmin/**/*
+/app
+/appmin
 /gulpfile.js

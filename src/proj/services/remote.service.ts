@@ -54,7 +54,7 @@ export module RemoteService {
         }
         getContactByFilter(request: HttpRequestModel.RequestModel<any>): Observable<HttpResponseModel.ResponseModel<any>> {
             debugger;
-            return this.httpService.post(this.urls.FilterContact, request.requestBody).map((data: Response) => {
+            return this.httpService.post(this.urls.FilterContact, JSON.stringify(request.requestBody)).map((data: Response) => {
                 debugger;
                 this.response.status = data.status;
                 this.response.result = <any>data.json();
